@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const posts = [
-        { title: 'First Post Coming Soon!', content: 'Coming soon' },
-    
-        // Add more posts as needed
+        { title: 'Comign Soon', content: 'Coming Soon' },
+
     ];
 
     const blogPosts = document.getElementById('blog-posts');
