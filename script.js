@@ -1,16 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Sample blog post data
     const posts = [
-        { title: 'Post Coming soon!', content: 'TComing Soon' },
+        { title: 'First Post Coming Soon!', content: 'Coming soon' },
+    
         // Add more posts as needed
     ];
 
     const blogPosts = document.getElementById('blog-posts');
+    const blogNavigation = document.getElementById('blog-navigation');
 
-    // Dynamically generate blog post elements
-    posts.forEach(post => {
+    // Dynamically generate blog post elements and navigation links
+    posts.forEach((post, index) => {
         const postElement = document.createElement('article');
+        postElement.id = `post-${index + 1}`;
         postElement.innerHTML = `<h2>${post.title}</h2><p>${post.content}</p>`;
         blogPosts.appendChild(postElement);
+
+        const navLink = document.createElement('a');
+        navLink.href = `#post-${index + 1}`;
+        navLink.textContent = post.title;
+        blogNavigation.appendChild(navLink);
+
+        // Add click event to scroll to the corresponding post
+        navLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            postElement.scrollIntoView({ behavior: 'smooth' });
+        });
     });
 });
